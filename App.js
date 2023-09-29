@@ -16,7 +16,8 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
-import HotelsListScreen from './components/HotelsListScreen';
+
+import HotelsListScreen from './screens/HotelsListScreen';
 
 function App() {
   return <HotelsListScreen />;
