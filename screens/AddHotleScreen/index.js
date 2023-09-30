@@ -7,7 +7,22 @@ const AddHotelScreen = ({navigation, route}) => {
   const [hotelPhone, setHotelPhone] = useState('');
   const [hotelWebsite, setHotelWebsite] = useState('');
 
+  // Regular expressions for phone number and website validation
+  const phoneRegex = /^[0-9]{10}$/; // Matches a 10-digit phone number
+  const websiteRegex = /^(https?:\/\/)?(www\.)?[\w-]+\.[a-z]{2,4}$/i; // Matches a basic website URL
+
   const onAddHotel = () => {
+    // Validating the phone number and website before adding to the new hotel object
+    if (!phoneRegex.test(hotelPhone)) {
+      alert('Invalid phone number. Please enter a 10-digit number.');
+      return;
+    }
+
+    if (!websiteRegex.test(hotelWebsite)) {
+      alert('Invalid website URL. Please enter a valid URL.');
+      return;
+    }
+
     // Creating a new hotel object
     const newHotel = {
       hotelName: hotelName,
