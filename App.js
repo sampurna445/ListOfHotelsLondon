@@ -6,21 +6,37 @@
  */
 
 import React from 'react';
-
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HotelsListScreen from './screens/HotelsListScreen';
+import HotelDetailsScreen from './screens/HotelsDetailsScreen';
+import AddHotelScreen from './screens/AddHotleScreen';
+
+const Stack = createNativeStackNavigator();
 
 function App() {
-  return <HotelsListScreen />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="HotelsList">
+        <Stack.Screen
+          name="HotelsList"
+          component={HotelsListScreen}
+          options={'Hotels List London'}
+        />
+        <Stack.Screen
+          name="HotelsDetails"
+          component={HotelDetailsScreen}
+          options={'Hotel Details'}
+        />
+        <Stack.Screen
+          name="AddHotel"
+          component={AddHotelScreen}
+          options={'Add New Hotel'}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 export default App;
