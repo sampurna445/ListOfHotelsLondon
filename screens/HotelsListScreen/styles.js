@@ -10,7 +10,7 @@ export default StyleSheet.create({
   },
   textAddHotel: {
     color: 'black',
-    paddingHorizontal: 90,
+    paddingHorizontal: 80,
     fontWeight: 'bold',
   },
 });
