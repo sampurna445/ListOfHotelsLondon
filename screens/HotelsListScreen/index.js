@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {View, FlatList, TouchableOpacity, Text, Button} from 'react-native';
+import styles from './styles';
 
 // Hotel data
 const hotels = [
@@ -52,33 +53,39 @@ const HotelsListScreen = props => {
   };
 
   return (
-    <View style={{flex: 1}}>
-      <FlatList
-        data={hotelList}
-        keyExtractor={item => item.hotelName}
-        renderItem={({item}) => (
-          <TouchableOpacity
-            onPress={() => {
-              props.navigation.navigate('HotelsDetails', {
-                hotelName: item.hotelName,
-                hotelAddress: item.address,
-                hotelPhone: item.phone,
-                hotelWebsite: item.website,
-              });
-            }}
-            style={{padding: 10, borderBottomWidth: 1, borderColor: '#ccc'}}>
-            <Text>{item.hotelName}</Text>
-          </TouchableOpacity>
-        )}
-      />
-      <Button
-        title="Add Hotel"
-        onPress={() =>
-          props.navigation.navigate('AddHotel', {
-            onSave: addHotel, // Passing the addHotel function to the AddHotelScreen
-          })
-        }
-      />
+    <View style={styles.container}>
+      <View style={{flex: 3}}>
+        <FlatList
+          style={{flex: 3}}
+          data={hotelList}
+          keyExtractor={item => item.hotelName}
+          renderItem={({item}) => (
+            <TouchableOpacity
+              onPress={() => {
+                props.navigation.navigate('HotelsDetails', {
+                  hotelName: item.hotelName,
+                  hotelAddress: item.address,
+                  hotelPhone: item.phone,
+                  hotelWebsite: item.website,
+                });
+              }}
+              style={styles.flatListItem}>
+              <Text>{item.hotelName}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
+      <View style={{flex: 1, padding: 50}}>
+        <TouchableOpacity
+          style={styles.buttonAddHotel}
+          onPress={() =>
+            props.navigation.navigate('AddHotel', {
+              onSave: addHotel, // Passing the addHotel function to the AddHotelScreen
+            })
+          }>
+          <Text style={styles.textAddHotel}>Add Hotel</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
