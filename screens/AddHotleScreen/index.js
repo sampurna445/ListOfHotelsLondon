@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, TextInput, Button, Text} from 'react-native';
+import styles from './styles';
 
 const AddHotelScreen = ({navigation, route}) => {
   const [hotelName, setHotelName] = useState('');
@@ -39,28 +40,34 @@ const AddHotelScreen = ({navigation, route}) => {
   };
 
   return (
-    <View style={{flex: 1, padding: 20}}>
+    <View style={{flex: 1, padding: 20, backgroundColor: '#FFEEEC'}}>
       <TextInput
         placeholder="Hotel Name"
         value={hotelName}
         onChangeText={setHotelName}
+        style={styles.textInputStyle}
       />
       <TextInput
         placeholder="Address"
         value={hotelAddress}
         onChangeText={setHotelAddress}
+        style={styles.textInputStyle}
       />
       <TextInput
         placeholder="Phone"
         value={hotelPhone}
         onChangeText={setHotelPhone}
+        style={styles.textInputStyle}
       />
       <TextInput
         placeholder="Website"
         value={hotelWebsite}
         onChangeText={setHotelWebsite}
+        style={styles.textInputStyle}
       />
-      <Button title="Add Hotel" onPress={onAddHotel} />
+      <View style={{marginTop: 50}}>
+        <Button title="Add Hotel" onPress={onAddHotel} />
+      </View>
     </View>
   );
 };
