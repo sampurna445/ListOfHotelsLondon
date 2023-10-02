@@ -65,8 +65,12 @@ const AddHotelScreen = ({navigation, route}) => {
         onChangeText={setHotelWebsite}
         style={styles.textInputStyle}
       />
-      <View style={{marginTop: 50}}>
-        <Button title="Add Hotel" onPress={onAddHotel} />
+      <View style={{marginTop: 50, backgroundColor: 'pink'}}>
+        <Button
+          title="Add Hotel"
+          onPress={onAddHotel}
+          style={{backgroundColor: 'pink'}}
+        />
       </View>
     </View>
   );

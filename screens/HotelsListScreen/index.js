@@ -54,9 +54,9 @@ const HotelsListScreen = props => {
 
   return (
     <View style={styles.container}>
-      <View style={{flex: 3}}>
+      <View style={{flex: 1}}>
         <FlatList
-          style={{flex: 3}}
+          style={{flex: 1}}
           data={hotelList}
           keyExtractor={item => item.hotelName}
           renderItem={({item}) => (
@@ -75,7 +75,7 @@ const HotelsListScreen = props => {
           )}
         />
       </View>
-      <View style={{flex: 1, padding: 50}}>
+      <View style={{height: 100, justifyContent: 'center'}}>
         <TouchableOpacity
           style={styles.buttonAddHotel}
           onPress={() =>

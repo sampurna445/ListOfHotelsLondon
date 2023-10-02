@@ -7,6 +7,7 @@ export default StyleSheet.create({
     padding: 20,
     justifyContent: 'center',
     backgroundColor: 'pink',
+    marginHorizontal: 10,
   },
   textAddHotel: {
     color: 'black',
